@@ -1,11 +1,11 @@
 # Custom Fields Anywhere
 
-Custom Fields Anywhere is an Elementor addon that allows users to embed Elementor templates with dynamically populated custom fields from specific posts. This enhances Elementor's dynamic content capabilities without requiring a loop grid.
+Custom Fields Anywhere is an Elementor addon that allows users to embed Elementor templates with dynamically populated custom fields from specific posts.
 
 ## Features
 - Select any post from supported post types
-- Choose an Elementor template to display the post with
-- Works with custom fields for enhanced dynamic content
+- Choose an Elementor Container template to display the post with
+- Works with custom fields for enhanced dynamic content (Pods, ACF)
 - Fully integrates with Elementor and Elementor Pro
 
 ## Requirements
@@ -16,14 +16,26 @@ Custom Fields Anywhere is an Elementor addon that allows users to embed Elemento
 
 ## Installation
 1. Download and install the plugin via the WordPress plugin manager or manually upload it to `/wp-content/plugins/`.
-2. Activate the plugin from the WordPress dashboard.
-3. Ensure Elementor and Elementor Pro are installed and active.
+2. Ensure Elementor and Elementor Pro are installed and active.
+3. Activate the plugin from the WordPress dashboard.
 
 ## Usage
-1. Open Elementor and add the **Custom Field Template Wrapper** widget.
-2. Select a post to retrieve dynamic content from.
-3. Choose an Elementor template to format the post display.
-4. Save and publish the page.
+1. **Create an Elementor Template**  
+   - In the Elementor template editor, create a **Container template**.  
+   - Connect the **custom fields of the selected post type** to Elementor elements using dynamic tags.
+   
+2. **Add the Widget**  
+   - Open Elementor and add the **Custom Field Template Wrapper** widget.
+
+3. **Select Content Source**  
+   - Choose a post from the available post types to retrieve dynamic content.
+
+4. **Apply the Template**  
+   - Select the Elementor template that defines how the post content should be displayed.
+
+5. **Save & Publish**  
+   - Apply changes and preview the dynamic content.
+
 
 ## Troubleshooting
 - If the widget does not appear, verify that both Elementor and Elementor Pro are installed and activated.
