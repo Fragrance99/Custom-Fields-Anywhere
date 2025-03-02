@@ -2,7 +2,6 @@
 namespace Custom_Fields_Anywhere\Widgets;
 
 use Elementor\Widget_Base;
-use Custom_Fields_Anywhere\Controls\Post_Type_Control;
 use Custom_Fields_Anywhere\Controls\Post_Selector_Control;
 use Custom_Fields_Anywhere\Controls\Template_Selector_Control;
 
@@ -48,8 +47,7 @@ class Custom_Field_Template_Wrapper extends Widget_Base
             ]
         );
 
-        // Register Controls
-        Post_Type_Control::register($this);
+        // Register post and template selector controls
         Post_Selector_Control::register($this);
         Template_Selector_Control::register($this);
 
@@ -67,34 +65,29 @@ class Custom_Field_Template_Wrapper extends Widget_Base
             return;
         }
 
-        error_log("Rendering template for post ID: " . $post_id);
-
         global $post;
         $original_post = $post;
 
+        // Set the global post to the selected post
         $post = get_post($post_id);
         setup_postdata($post);
 
+        // Render the Elementor template
         $shortcode = do_shortcode('[elementor-template id="' . $template_id . '"]');
 
-        ?>
-        <div class="cfa-wrapper">
-            <?php echo $shortcode; ?>
-        </div>
-        <?php
+        echo '<div class="cfa-wrapper">' . $shortcode . '</div>';
 
+        // Reset the post data after rendering
         wp_reset_postdata();
         $post = $original_post;
     }
-
 
     protected function content_template()
     {
         ?>
         <div class="cfa-wrapper">
-            <p><strong>Selected Post Type:</strong> <span>{{ settings.post_type }}</span></p>
-            <p><strong>Selected Post:</strong> <span>{{ settings.post_id }}</span></p>
-            <p><strong>Selected Template:</strong> <span>{{ settings.template_id }}</span></p>
+            <p><strong>Selected Post ID:</strong> <span>{{ settings.post_id }}</span></p>
+            <p><strong>Selected Template ID:</strong> <span>{{ settings.template_id }}</span></p>
         </div>
         <?php
     }

@@ -1,7 +1,8 @@
 <?php
 namespace Custom_Fields_Anywhere\Controls;
 
-use Elementor\Controls_Manager;
+use ElementorPro\Modules\QueryControl\Module as QueryModule;
+use ElementorPro\Core\Utils;
 
 if (!defined('ABSPATH')) {
     exit;
@@ -11,16 +12,24 @@ class Post_Selector_Control
 {
     public static function register($widget)
     {
+        // Fetch allowed post types using Elementor Pro's method
+        $allowed_post_types = Utils::get_public_post_types();
+
         $widget->add_control(
             'post_id',
             [
                 'label' => esc_html__('Choose a Post', 'custom-fields-anywhere'),
-                'type' => Controls_Manager::SELECT2,
-                'options' => [], // Will be dynamically updated
+                'type' => QueryModule::QUERY_CONTROL_ID,
                 'label_block' => true,
-                'placeholder' => esc_html__('Start typing post title', 'custom-fields-anywhere'),
-                'dynamic' => ['active' => true], // Ensures Elementor remembers the value
-                'save_default' => true, // Saves the last selected value
+                'multiple' => false, // Only allow selecting one post
+                'autocomplete' => [
+                    'object' => QueryModule::QUERY_OBJECT_POST,
+                    'display' => 'detailed',
+                    'query' => [
+                        'post_type' => array_keys($allowed_post_types), // Fetch only allowed post types
+                        'post_status' => 'publish',
+                    ],
+                ],
             ]
         );
     }

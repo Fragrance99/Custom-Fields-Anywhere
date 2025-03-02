@@ -1,13 +1,15 @@
 <?php
 namespace Custom_Fields_Anywhere\Controls;
 
-use Elementor\Controls_Manager;
-use Custom_Fields_Anywhere\Helpers\Helper_Functions;
+use ElementorPro\Modules\QueryControl\Controls\Template_Query;
+use ElementorPro\Modules\QueryControl\Module as QueryControlModule;
+use Elementor\Core\Base\Document;
+use Elementor\Includes\Elements\Container;
+
 
 if (!defined('ABSPATH')) {
     exit;
 }
-
 class Template_Selector_Control
 {
     public static function register($widget)
@@ -16,10 +18,35 @@ class Template_Selector_Control
             'template_id',
             [
                 'label' => esc_html__('Choose a Template', 'custom-fields-anywhere'),
-                'type' => Controls_Manager::SELECT2,
-                'options' => Helper_Functions::get_elementor_templates(),
+                'type' => Template_Query::CONTROL_ID, // Uses Elementor's built-in template query
                 'label_block' => true,
-                'placeholder' => esc_html__('Start typing template name', 'custom-fields-anywhere'),
+                'autocomplete' => [
+                    'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
+                    'query' => [
+                        'post_status' => Document::STATUS_PUBLISH,
+                        'meta_query' => [
+                            [
+                                'key' => Document::TYPE_META_KEY,
+                                'value' => Container::get_type(), // Filters only container templates
+                                'compare' => '='
+                            ],
+                        ],
+                    ],
+                ],
+                'actions' => [
+                    'new' => [
+                        'visible' => true,
+                        'document_config' => [
+                            'type' => Container::get_type(), // Ensures only "container" templates can be created
+                        ],
+                        'after_action' => 'redirect',
+                    ],
+                    'edit' => [
+                        'visible' => true,
+                        'after_action' => 'redirect',
+                    ],
+                ],
+                'frontend_available' => true,
             ]
         );
     }
