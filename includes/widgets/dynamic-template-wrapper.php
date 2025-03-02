@@ -18,17 +18,17 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class Custom_Field_Template_Wrapper extends Widget_Base
+class Dynamic_Template_Wrapper extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'custom_field_template_wrapper';
+        return 'dynamic-template-wrapper';
     }
 
     public function get_title()
     {
-        return esc_html__('Custom Field Template Wrapper', 'custom-fields-anywhere');
+        return esc_html__('Dynamic Template Wrapper', 'custom-fields-anywhere');
     }
 
     public function get_icon()
@@ -43,7 +43,7 @@ class Custom_Field_Template_Wrapper extends Widget_Base
 
     public function get_keywords()
     {
-        return ['custom', 'field', 'template', 'wrapper'];
+        return ['custom', 'field', 'template', 'wrapper', 'dynamic'];
     }
 
     protected function _register_controls()

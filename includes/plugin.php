@@ -96,7 +96,7 @@ final class Plugin
 
     public function register_widgets($widgets_manager)
     {
-        require_once __DIR__ . '/widgets/custom-field-template-wrapper.php';
-        $widgets_manager->register(new Widgets\Custom_Field_Template_Wrapper());
+        require_once __DIR__ . '/widgets/dynamic-template-wrapper.php';
+        $widgets_manager->register(new Widgets\Dynamic_Template_Wrapper());
     }
 }
