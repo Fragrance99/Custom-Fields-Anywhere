@@ -10,6 +10,7 @@
 namespace Custom_Fields_Anywhere\Widgets;
 
 use Elementor\Widget_Base;
+use Custom_Fields_Anywhere\Controls\Post_Type_Selector_Control;
 use Custom_Fields_Anywhere\Controls\Post_Selector_Control;
 use Custom_Fields_Anywhere\Controls\Template_Selector_Control;
 
@@ -56,6 +57,7 @@ class Dynamic_Template_Wrapper extends Widget_Base
         );
 
         // Register post and template selector controls
+        Post_Type_Selector_Control::register($this);
         Post_Selector_Control::register($this);
         Template_Selector_Control::register($this);
 
@@ -94,6 +96,7 @@ class Dynamic_Template_Wrapper extends Widget_Base
     {
         ?>
         <div class="cfa-wrapper">
+            <p><strong>Selected Post Type:</strong> <span>{{ settings.post_type }}</span></p>
             <p><strong>Selected Post ID:</strong> <span>{{ settings.post_id }}</span></p>
             <p><strong>Selected Template ID:</strong> <span>{{ settings.template_id }}</span></p>
         </div>

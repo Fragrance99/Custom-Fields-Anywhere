@@ -46,6 +46,7 @@ final class Plugin
 
     private function load_dependencies()
     {
+        require_once __DIR__ . '/controls/post-type-selector-control.php';
         require_once __DIR__ . '/controls/post-selector-control.php';
         require_once __DIR__ . '/controls/template-selector-control.php';
     }
