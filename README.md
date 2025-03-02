@@ -34,4 +34,8 @@ Custom Fields Anywhere is an Elementor addon that allows users to embed Elemento
 For issues and feature requests, visit the [GitHub repository](https://github.com/fragrance99/custom-fields-anywhere) or contact the author.
 
 ## License
-This plugin is licensed under the MIT License.
+This plugin is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.  
+You may use, modify, and distribute this plugin under the terms of the GPL-3.0.  
+
+For more details, see the [full license](LICENSE) or visit:  
+[https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)

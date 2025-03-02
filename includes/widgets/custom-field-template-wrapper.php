@@ -1,4 +1,12 @@
 <?php
+/**
+ * Custom Fields Anywhere - Elementor Addon
+ *
+ * @package    CustomFieldsAnywhere
+ * @author     Fragrance99
+ * @license    GPL-3.0-or-later https://www.gnu.org/licenses/gpl-3.0.html
+ * @link       https://github.com/fragrance99/custom-fields-anywhere
+ */
 namespace Custom_Fields_Anywhere\Widgets;
 
 use Elementor\Widget_Base;
