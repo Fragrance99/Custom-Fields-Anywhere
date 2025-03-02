@@ -39,7 +39,7 @@ Custom Fields Anywhere is an Elementor addon that allows users to embed Elemento
 
 ## Troubleshooting
 - If the widget does not appear, verify that both Elementor and Elementor Pro are installed and activated.
-- Ensure your selected Elementor template is published and accessible.
+- Ensure your selected Elementor template is a Container template published and accessible.
 - If dynamic fields do not populate, confirm that your post has valid custom fields.
 
 ## Support
