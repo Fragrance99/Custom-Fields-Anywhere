@@ -5,7 +5,7 @@ Custom Fields Anywhere is an Elementor addon that allows users to embed Elemento
 ## Features
 - Select any post from supported post types
 - Choose an Elementor Container template to display the post with
-- Works with custom fields for enhanced dynamic content (Pods, ACF)
+- Works with dynamic custom fields for enhanced dynamic content (Pods, ACF)
 - Fully integrates with Elementor and Elementor Pro
 
 ## Requirements
@@ -25,7 +25,7 @@ Custom Fields Anywhere is an Elementor addon that allows users to embed Elemento
    - Connect the **custom fields of the selected post type** to Elementor elements using dynamic tags.
    
 2. **Add the Widget**  
-   - Open Elementor and add the **Custom Field Template Wrapper** widget.
+   - Open Elementor and add the **Dynamic Template Wrapper** widget.
 
 3. **Select Content Source**  
    - Choose a post from the available post types to retrieve dynamic content.
